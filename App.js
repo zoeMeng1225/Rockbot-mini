@@ -1,21 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import Playlist from './pages/Playlist';
+import SearchPage from './pages/SearchPage';
 
-export default function App() {
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+import { MaterialIcons, AntDesign } from '@expo/vector-icons';
+
+const Tab = createBottomTabNavigator();
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen 
+          name="Now Playing" 
+          component={Playlist} 
+          options = {{
+            tabBarIcon: ({color, size}) => <MaterialIcons name = "headset" size = {size} color = {color}/>
+        }}/>
+        <Tab.Screen name="Request" component={SearchPage} options = {{
+          tabBarIcon: ({color, size}) => <AntDesign name="search1" size={size} color={color} />
+        }}/>
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+export default App;
+
