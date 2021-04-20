@@ -52,7 +52,9 @@ const Playlist = () => {
       headers: {
         Authorization: API_KEY,
       }
-    }).then(res => console.log(res))
+    }).then(res => {
+      
+    })
       .catch(e => console.log(e.message))
   } 
 
