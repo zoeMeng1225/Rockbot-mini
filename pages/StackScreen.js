@@ -9,12 +9,11 @@ const StackScreen = () => {
   return(
     <Stack.Navigator >
       <Stack.Screen name = "Searchpage" component = {SearchPage}  options={{
-      headerStyle: {
-        backgroundColor: '#2e91d9'
-      },headerTintColor: '#fff',
+        headerStyle: {
+          backgroundColor: '#2e91d9'
+        },headerTintColor: '#fff',
       }}/>
-      <Stack.Screen name = "AritstList" component = {ArtistList} getParam/>
-      
+      <Stack.Screen name = "AritstList" component = {ArtistList} />
     </Stack.Navigator>
   ) 
 }

@@ -7,10 +7,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { MaterialIcons, AntDesign } from '@expo/vector-icons';
 
-
 const Tab = createBottomTabNavigator();
-
-
 
 const App = () => {
   return (
@@ -29,8 +26,6 @@ const App = () => {
     </NavigationContainer>
   );
 }
-
-
 
 
 export default App;
