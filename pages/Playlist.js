@@ -24,9 +24,7 @@ const Playlist = () => {
         }
       }))
       setPlaynow(res.data.response.now_playing)
-    }).catch(e => {
-      console.log(e.message)
-    })
+    }).catch(e => console.log(e.message))
   } 
 
   useEffect(() => {

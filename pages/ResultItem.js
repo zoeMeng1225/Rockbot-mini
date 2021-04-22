@@ -26,15 +26,4 @@ const ResultItem = ({result, showModal}) => {
   )
 }
 
-const styles = StyleSheet.create({
-  cardstyle:{
-    margin:0, 
-    borderLeftColor: '#fff', 
-    borderRightColor:'#fff',
-    borderTopColor:'#fff',
-    shadowOpacity:0,
-    padding: 10,
-  }
-});
-
  export default ResultItem;
