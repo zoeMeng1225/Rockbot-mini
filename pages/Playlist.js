@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from 'react';
-import { StyleSheet, View, Alert} from 'react-native';
+import { StyleSheet, View, TouchableOpacity} from 'react-native';
 import { Header, Text, ListItem, Avatar, Image } from 'react-native-elements';
 import Axios from 'axios';
 import {BASE_URL, API_KEY} from '../constance';
@@ -40,7 +40,7 @@ const Playlist = () => {
       headers: {
         Authorization: API_KEY,
       }
-    }).then(res => console.log(res))
+    }).then(console.log(`you have liked the song`))
       .catch(e => console.log(e.message))
   }
 
@@ -50,10 +50,8 @@ const Playlist = () => {
       headers: {
         Authorization: API_KEY,
       }
-    }).then(res => {
-      
-    })
-      .catch(e => console.log(e.message))
+    }).then(console.log(`you have liked the song`))
+    .catch(e => console.log(e.message))
   } 
 
 
@@ -89,10 +87,13 @@ const Playlist = () => {
                 <ListItem.Title>{item.artist}</ListItem.Title>
                 <ListItem.Subtitle>{item.song}</ListItem.Subtitle>    
               </ListItem.Content>
-              <Feather onClick = {() => {likehandler(item.pick_id)}} name="thumbs-up" size={20} color="black" /> 
+              <TouchableOpacity>
+                <Feather onClick = {() => {likehandler(item.pick_id)}} name="thumbs-up" size={20} color="black" /> 
+              </TouchableOpacity>
               <Text>{item.likes}</Text>
-
-              <Feather name="thumbs-down" size={20} color="black" onClick = {() => {unlikehandler(item.pick_id)}} />
+              <TouchableOpacity>
+                <Feather name="thumbs-down" size={20} color="black" onClick = {() => {unlikehandler(item.pick_id)}} />
+              </TouchableOpacity>
               <Text>{item.dislikes}</Text>
             </ListItem>
           ))

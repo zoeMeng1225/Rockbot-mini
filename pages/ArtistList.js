@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, StyleSheet,Image, TouchableOpacity} from "react-native";
+import React,{useState} from 'react';
+import { View, StyleSheet,Image, TouchableOpacity, Alert} from "react-native";
 import {ListItem, Avatar, Text} from 'react-native-elements'
 import { Entypo } from '@expo/vector-icons'; 
 import Axios from 'axios';
@@ -10,6 +10,7 @@ const SimpleIma = "https://i.pinimg.com/236x/f7/c8/e3/f7c8e3169d360dd096e3f79b77
 
 
 const ArtistList = ({route}) => {
+  const [alert, setAlert] = useState(false);
   const artist = route?.params?.artist;
   
   const addQueue = id => {
@@ -20,8 +21,23 @@ const ArtistList = ({route}) => {
       }
     }).then(res => {
      res.data.response.queue.push(route.params.artist)
+     careteAlert();
      console.log(res.data.response.queue)
     }).catch(e => console.log('song', e))
+  }
+
+  const careteAlert = () =>
+    Alert.alert(
+      "Successfully",
+      "Added the song to the Queue!",
+      [
+        { text: "OK", onPress: () => CloseAlert() }
+      ]
+    );
+
+  
+  const CloseAlert = () => {
+    setAlert(false);
   }
   
 
